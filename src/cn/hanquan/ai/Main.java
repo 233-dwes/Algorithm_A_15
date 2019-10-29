@@ -9,28 +9,29 @@ package cn.hanquan.ai;
  * @author luyang.gong
  * 
  * f(n)=g(n)+h(n)
- * g(n):已经走过
+ * g(n):已经走过的深度
  * h(n):对未来的估计
  * 
  * 
 	Begin： 
 	读入初始状态和目标状态，并计算初始状态评价函数值f； 
 	初始化两个open表和closed表，将初始状态放入open表中
-	If（open表为空）
-	    查找失败；
-	End if
-	else  
-	①	在open表中找到评价值最小的节点，作为当前结点，并放入closed表中； 
-	②	判断当前结点状态和目标状态是否一致，若一致，跳出循环；否则跳转到③； 
-	③	对当前结点，分别按照上、下、左、右方向移动空格位置来扩展新的状态结点，并计算新扩展结点的评价值f并记录其父节点； 
-	④	对于新扩展的状态结点，进行如下操作：
-		A．新节点既不在open表中，也不在closed表中，则ADD (mj, OPEN)；
-		B．新节点在open表中，则	IF f(n-mk) < f(mk)  
-								THEN f(mk):=f(n-mk)， 
-		C．新节点在closed表中，则IF f(n-ml) < f(ml)  
-								THEN f(ml):=f(n-ml)，     
-	⑤	把当前结点从open表中移除； 
-	End if
+	Loop:
+		If（open表为空）
+		    查找失败；
+		End if
+		Else  
+		①	在open表中找到评价值最小的节点，作为当前结点，并放入closed表中； 
+		②	判断当前结点状态和目标状态是否一致，若一致，跳出循环；否则跳转到③； 
+		③	对当前结点，分别按照上、下、左、右方向移动空格位置来扩展新的状态结点，并计算新扩展结点的评价值f并记录其父节点； 
+		④	对于新扩展的状态结点，进行如下操作：
+			A．新节点既不在open表中，也不在closed表中，则ADD (mj, OPEN)；
+			B．新节点在open表中，则	IF f(n-mk) < f(mk)  
+									THEN f(mk):=f(n-mk)， 
+			C．新节点在closed表中，则IF f(n-ml) < f(ml)  
+									THEN f(ml):=f(n-ml)，     
+		⑤	把当前结点从open表中移除； 
+		End if
 	End
  *
  */
