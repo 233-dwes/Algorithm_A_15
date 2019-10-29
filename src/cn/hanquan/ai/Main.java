@@ -9,8 +9,8 @@ package cn.hanquan.ai;
  * @author luyang.gong
  * 
  * f(n)=g(n)+h(n)
- * g(n):已经走过的深度
- * h(n):对未来的估计
+ * g(n):根据搜索历史情况，对已经走过的深度的估计
+ * h(n):h(n):启发函数，对未来的估计，定义为每个将牌与其目标位置之间最短距离的总和.
  * 
  * 
 	Begin： 
