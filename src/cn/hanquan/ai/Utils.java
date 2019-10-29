@@ -49,8 +49,13 @@ public class Utils {
 		int count = 0;
 		for (int i = 0; i < Init.SIZE; i++) {
 			for (int j = 0; j < Init.SIZE; j++) {
-				if (curBoard.arr[i][j] != 0 && curBoard.arr[i][j] != arr[i][j]) {
-					count++;
+				label: for (int m = 0; m < Init.SIZE; m++) {
+					for (int n = 0; n < Init.SIZE; n++) {
+						if (curBoard.arr[i][j] == arr[m][n]) {
+							count += getDistance(i, j, m, n);
+							break label;
+						}
+					}
 				}
 			}
 		}
